@@ -20,8 +20,6 @@ Property Management System is a web application for managing properties. This ap
 
 - **Mortgage Calculator:** The system includes a built-in mortgage calculator.
 
-Join PropertyLah now and take full control of your property management journey!
-
 ## Tech Stack
 - Backend: Spring Boot
 - Frontend: Thymeleaf, Bootstrap
