@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>PropertyLah</title>
+        <!-- Include jQuery and Bootstrap's JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+      /* Set the size of the div element that contains the map */
+      #map {
+        height: 80vh;  /* The height is 80% of the viewport height */
+        width: 100%;  /* The width is 100% of the viewport width */
+      }
+      .sidebar {
+        height: 80vh;
+        padding: 20px;
+        overflow-y: auto;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+      }
+      .sidebar-item {
+        cursor: pointer;
+        padding: 10px;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      .sidebar-item:last-child {
+        border-bottom: none;
+      }
+      .sidebar-item:hover {
+        background-color: #f0f0f0;
+      }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" th:href="@{/properties}">PropertyLah</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/user/profile}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/map}">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/mortgage}">Mortgage Calculator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/tenants/all}">Tenants</a>
+      </li>
+    </ul>
+    <form th:action="@{/user/logout}" method="post" class="form-inline my-2 my-lg-0 ml-auto">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-12 col-md-3 mb-3 mb-md-0">
+      <h3>Properties:</h3>
+      <div id="sidebar" class="sidebar"></div>
+    </div>
+    <div class="col-12 col-md-9">
+      <h3>Property Locations:</h3>
+      <div id="map"></div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDaegPHhvZhnlsv0_JhT3iJYnxPVoEfXsI&libraries=places&callback=initMap" defer></script>
+</body>
+</html>
+
+
+

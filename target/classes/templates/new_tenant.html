@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>PropertyLah</title>
+        <!-- Include jQuery and Bootstrap's JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" th:href="@{/properties}">PropertyLah</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/user/profile}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/map}">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/mortgage}">Mortgage Calculator</a>
+      </li>
+      <li class="nav-item">
+		<a class="nav-link" th:href="@{/tenants/all}">Tenants</a>
+	  </li>
+    </ul>
+    <form th:action="@{/user/logout}" method="post" class="form-inline my-2 my-lg-0 ml-auto">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Add New Tenant</h1>
+            <div class="card-body">
+                <form th:action="@{'/properties/' + ${propertyId} + '/tenants/create'}" method="post" th:object="${tenant}">
+    				<input type="hidden" th:field="*{property.id}" th:value="${propertyId}" />
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="name" th:field="*{name}" class="form-control" placeholder="Enter Tenant's Name" />
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="text" name="phoneNumber" th:field="*{phoneNumber}" class="form-control" placeholder="Enter Tenant's Phone Number" />
+                    </div>
+					<div class="form-group">
+					    <label>Monthly Rent</label>
+					    <input type="text" id="formattedRent" class="form-control" placeholder="Enter Tenant's Rent" oninput="formatRent()" />
+					    <input type="hidden" name="rent" id="rent" th:field="*{rent}" />
+					</div>
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+function formatRent() {
+    const input = document.getElementById('formattedRent');
+    const rent = document.getElementById('rent');
+    let value = input.value.replace(/,/g, '').replace('$', '');
+    value = Number(value).toString();
+    let parts = value.split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    input.value = parts.join(".");
+    if (!input.value.startsWith('$')) {
+        input.value = '$' + input.value;
+    }
+    rent.value = Number(value).toString();
+}
+
+window.onload = function() {
+    formatRent();
+};
+</script>
+</body>
+</html>
+

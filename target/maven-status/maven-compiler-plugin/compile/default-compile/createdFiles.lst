@@ -1,0 +1,12 @@
+com\fdm\propertyLah\service\UserService.class
+com\fdm\propertyLah\Application.class
+com\fdm\propertyLah\controller\PropertyRestController.class
+com\fdm\propertyLah\repository\UserRepository.class
+com\fdm\propertyLah\model\User.class
+com\fdm\propertyLah\config\SecurityConfig.class
+com\fdm\propertyLah\controller\UserController.class
+com\fdm\propertyLah\service\PropertyService.class
+com\fdm\propertyLah\controller\PropertyController.class
+com\fdm\propertyLah\service\UserDetailsServiceImpl.class
+com\fdm\propertyLah\model\Property.class
+com\fdm\propertyLah\repository\PropertyRepository.class

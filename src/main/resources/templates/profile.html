@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>PropertyLah</title>
+    <!-- Include jQuery and Bootstrap's JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" 
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" 
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container h2 {
+            color: #2c3e50;
+        }
+        .container p {
+            color: #7f8c8d;
+        }
+        .alert {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" th:href="@{/properties}">PropertyLah</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/user/profile}">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/map}">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/mortgage}">Mortgage Calculator</a>
+      </li>
+      <li class="nav-item">
+		<a class="nav-link" th:href="@{/tenants/all}">Tenants</a>
+	  </li>
+    </ul>
+    <form th:action="@{/user/logout}" method="post" class="form-inline my-2 my-lg-0 ml-auto">
+        <button type="submit" class="btn btn-danger">Logout</button>
+    </form>
+  </div>
+</nav>
+<br>
+<br>
+<div class="container">
+    <div th:object="${user}">
+        <h2>Welcome back, <span th:text="*{name}"></span>!</h2>
+        <p>Your email ID: <span th:text="*{email}"></span></p>
+        <p>Here's your personal space. Feel free to manage your profile and keep your information up-to-date.</p>
+    </div>
+
+    <!-- Display success message -->
+    <div th:if="${message}" class="alert alert-success" th:utext="${message}"></div>
+
+    <!-- Display error message -->
+    <div th:if="${error}" class="alert alert-danger" th:utext="${error}"></div>
+
+    <!-- Password Change Form -->
+    <form th:action="@{/user/changePassword}" method="post">
+        <div class="form-group">
+            <label for="currentPassword">Current Password:</label>
+            <input type="password" id="currentPassword" name="currentPassword" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="newPassword">New Password:</label>
+            <input type="password" id="newPassword" name="newPassword" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm New Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" required/>
+        </div>
+        <button type="submit" class="btn btn-primary">Change Password</button>
+    </form>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
