@@ -8,7 +8,7 @@ Property Management System is a web application for managing properties. This ap
 
 ## Features
 
-- **Property and Tenant Tracking:** PropertyLah makes tracking your properties and tenants simple and efficient.
+- **Property and Tenant Tracking:** PropertyLah makes tracking your properties and tenants simple and efficient. Includes auto-complete function for adding of location.
 
 - **Google Maps:** Provides a map for the location of all properties for easy tracking as well as directions to the property.
 
@@ -27,7 +27,9 @@ Property Management System is a web application for managing properties. This ap
 - Security: Spring Security
 - Build tool: Maven
 
-## Images
+## Demo
+![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/8757633a-8d7e-49e0-9000-f9d3d3c2368d)
+
 ![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/a5b44efa-1ebf-47a4-a720-84e92b843dc8)
 
 ![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/8b926f83-1044-46c4-847b-c1d787c7408e)
