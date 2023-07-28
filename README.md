@@ -28,10 +28,11 @@ Property Management System is a web application for managing properties. This ap
 - Build tool: Maven
 
 ## Demo
+- Adding of Property
 ![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/8757633a-8d7e-49e0-9000-f9d3d3c2368d)
-
+- View of Tenants
 ![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/a5b44efa-1ebf-47a4-a720-84e92b843dc8)
-
+- Google Map
 ![image](https://github.com/Le-Jared/PropertyLah/assets/68887503/8b926f83-1044-46c4-847b-c1d787c7408e)
 
 
