@@ -7,7 +7,7 @@ function sortTableAsc() {
       switching = false;
       rows = table.rows;
       /* Loop through all table rows (except the first, which contains table headers): */
-      for (i = 1; i < (rows.length - 1); i++) {
+      for (i = 1; i < (rows.length - 2); i++) {
         shouldSwitch = false;
         /* Get the two elements you want to compare, one from current row and one from the next: */
         x = rows[i].getElementsByTagName("TD")[2]; // the 3rd column is the Price column
@@ -33,7 +33,7 @@ function sortTableDesc() {
     while (switching) {
       switching = false;
       rows = table.rows;
-      for (i = 1; i < (rows.length - 1); i++) {
+      for (i = 1; i < (rows.length - 2); i++) {
         shouldSwitch = false;
         x = rows[i].getElementsByTagName("TD")[2];
         y = rows[i + 1].getElementsByTagName("TD")[2];
