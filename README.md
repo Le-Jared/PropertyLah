@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Property Management System is a web application for managing properties. This application allows users to manage their properties and tenants, view properties on a map, and change their account details.
+PropertyLahm is a web application for managing properties. This application allows users to manage their properties and tenants, view properties on a map, and change their account details.
 
 
 
