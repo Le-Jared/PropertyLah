@@ -2,9 +2,10 @@
 
 ## Introduction
 
-PropertyLahm is a web application for managing properties. This application allows users to manage their properties and tenants, view properties on a map, and change their account details.
+PropertyLah is a web application for managing properties. This application allows users to manage their properties and tenants, view properties on a map, and change their account details.
 
-
+## Timeline
+5 Working Days
 
 ## Features
 
